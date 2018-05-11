@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>yvan vander sanden</Authors>
+    <Company>MuteCode</Company>
+    <Description>The YSE Sound Engine, with wrappers for .NET</Description>
+    <AssemblyVersion>1.0.*</AssemblyVersion>
+	<Deterministic>False</Deterministic>
+    <Version>1.0.61</Version>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <Import Project="..\NetYse\NetYse.projitems" Label="Shared" />
+
+  <Import Project="..\PCLYSE\PCLYSE.projitems" Label="Shared" />
+
+  <ItemGroup>
+    <Content Include="..\dependencies\libsndfile\bin\libsndfile-1.dll" Link="lib\net40\libsndfile-1.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\dependencies\portaudio\lib\releasedll\portaudio_x86.dll" Link="lib\net40\portaudio_x86.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\Yse.Windows.Native\Release\Win32\Yse.dll" Link="lib\net40\lib\Yse.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\YSE.NET.PCL\YSE.NET.PCL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="lib\net40\lib\" />
+  </ItemGroup>
+
+</Project>
